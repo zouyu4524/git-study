@@ -25,14 +25,13 @@ git push origin [name_of_new_branch]
 git branch --list
 ```
 当前branch将会用`*`标注。  
-为新的branch添加新的`remote`
+
+如果当前branch中的修改到达一个阶段, 可以将其合并至master branch中, 操作如下
 ```
-git remote add [name_of_remote] [name_of_new_branch]
+git checkout master
+git merge origin/[name_of_new_branch]
 ```
-如果当前branch中的修改到达一个阶段, 可以将其合并至master branch中, 则
-```
-git merge [name_of_remote]/master
-```
+首先切换回master branch, 再执行`merge`命令, 将修改发生的branch合并至master branch中。
 
 ### 参考
 
