@@ -1,5 +1,35 @@
 # Git 学习笔记
 
+### 在Commit前撤销已add的修改
+
+```
+git reset <file>
+```
+或者如下
+```
+git reset 
+```
+撤销所有的已add但未commit的修改。
+
+**注**: 如果repo还没有任何的commit, 也可以通过如下的命令撤销<sup>[2]</sup>
+```
+git rm <-r> --cached <added_file_to_undo>
+```
+其中`-r`是可选项, 表示递归式操作, 当需要撤回的文件包含文件夹时需要设置该选项。  
+原理在于`git ret`是将`HEAD`撤销至上一次commit状态, 而若还没有任何的commit, 则`HEAD`无法解析。其中[2]给出了很有趣的解释。
+
+### 在Push前撤销已commit的修改
+
+```
+git reset <commit_id>
+```
+将`HEAD`指针☞回`commit_id`所标识的commit, 而查找相应的commit id可以通过`git log <-no.>`完成。其中`no.`为commit的编号, 从新到旧递增, 当前的commit编号为1, 所以可以通过
+```
+git log -2
+```
+查看目标commit, 可以进一步比对commit内容确认。明确commit id后, 执行`git reset <commit_id>`即可。  
+**注**: 以上操作将完全撤销至上一次commit后的状态, 但不会撤回已经修改的代码。
+
 ### 创建新的Branch
 
 **Branch管理原则**<sup>[1]</sup>: 
@@ -16,7 +46,7 @@ git checkout -b [name_of_new_branch]
 ```
 将新的branch推送至远程repo
 ```
-git push origin [name_of_new_branch]
+git push -u origin [name_of_new_branch]
 ```
 在新创建的branch上进行修改, 所有的commit在该branch上开展, 直至达到阶段性的进展再考虑将其同步至master branch。  
 
@@ -36,3 +66,4 @@ git merge origin/[name_of_new_branch]
 ### 参考
 
 1. [Create a new branch with git and manage branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
+2. [How do I undo 'git add' before commit?](https://stackoverflow.com/a/682343/8064227)
