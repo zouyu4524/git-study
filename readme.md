@@ -2,6 +2,10 @@
 
 ### 创建新的Branch
 
+**Branch管理原则**<sup>[1]</sup>: 
+
+> In your github fork, you need to keep your master branch clean, by clean I mean without any changes, like that you can create at any time a branch from your master. Each time that you want to commit a bug or a feature, you need to create a branch for it, which will be a copy of your master branch.
+
 将远程的repo（origin/master）同步至本地
 ```
 git pull
@@ -24,6 +28,10 @@ git branch --list
 为新的branch添加新的`remote`
 ```
 git remote add [name_of_remote] [name_of_new_branch]
+```
+如果当前branch中的修改到达一个阶段, 可以将其合并至master branch中, 则
+```
+git merge [name_of_remote]/master
 ```
 
 ### 参考
