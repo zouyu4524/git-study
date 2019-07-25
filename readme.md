@@ -1,5 +1,9 @@
 # Git 学习笔记
 
+### `origin`
+
+`origin`是remote组中的默认成员, 在`git clone`时自动创建, 其值为远程repo的url（url以`.git`结尾）。
+
 ### 在Commit前撤销已add的修改
 
 ```
@@ -13,7 +17,7 @@ git reset
 
 **注**: 如果repo还没有任何的commit, 也可以通过如下的命令撤销<sup>[2]</sup>
 ```
-git rm <-r> --cached <added_file_to_undo>
+git rm [-r] --cached <added_file_to_undo>
 ```
 其中`-r`是可选项, 表示递归式操作, 当需要撤回的文件包含文件夹时需要设置该选项。  
 原理在于`git ret`是将`HEAD`撤销至上一次commit状态, 而若还没有任何的commit, 则`HEAD`无法解析。其中[2]给出了很有趣的解释。
@@ -63,7 +67,28 @@ git merge origin/[name_of_new_branch]
 ```
 首先切换回master branch, 再执行`merge`命令, 将修改发生的branch合并至master branch中。
 
+### `git remote`
+
+`git remote`是管理远程repo的指令, 当每一个项目独立成repo的情况下似乎不需要常使用该指令<sup>[3]</sup>。以下罗列可能的使用场景:
+
+- 检查远程repo与本地的差异
+```
+git remote [-v | --verbose] update
+```
+该指令将比对所有remote组中的远程repo各个branch与本地repo相应branch的差异, 一般对个人（现阶段的我）而言, remote组中只有一个成员, 即`origin`。
+
+- 查看远程repo的全部信息
+```
+git remote -v
+```
+该指令将罗列出当前git环境下所有的远程repo信息, 以`<remote_name, url>`对的形式显示, 一般而言即显示类似如下内容:
+```
+origin  https://github.com/zouyu4524/RL-market.git (fetch)
+origin  https://github.com/zouyu4524/RL-market.git (push)
+```
+
 ### 参考
 
 1. [Create a new branch with git and manage branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 2. [How do I undo 'git add' before commit?](https://stackoverflow.com/a/682343/8064227)
+3. `git remote --help`
