@@ -1,5 +1,19 @@
 # Git 学习笔记
 
+<details>
+<summary>点击打开目录</summary>
+<!-- MarkdownTOC  levels="2,3" autolink="true" -->
+
+- [`origin`](#origin)
+- [在Commit前撤销已add的修改](#%E5%9C%A8commit%E5%89%8D%E6%92%A4%E9%94%80%E5%B7%B2add%E7%9A%84%E4%BF%AE%E6%94%B9)
+- [在Push前撤销已commit的修改](#%E5%9C%A8push%E5%89%8D%E6%92%A4%E9%94%80%E5%B7%B2commit%E7%9A%84%E4%BF%AE%E6%94%B9)
+- [创建新的Branch](#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84branch)
+- [`git remote`](#git-remote)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- /MarkdownTOC -->
+</details>
+
 ### `origin`
 
 `origin`是remote组中的默认成员, 在`git clone`时自动创建, 其值为远程repo的url（url以`.git`结尾）。
