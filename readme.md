@@ -8,6 +8,7 @@
 - [在Commit前撤销已add的修改](#%E5%9C%A8commit%E5%89%8D%E6%92%A4%E9%94%80%E5%B7%B2add%E7%9A%84%E4%BF%AE%E6%94%B9)
 - [在Push前撤销已commit的修改](#%E5%9C%A8push%E5%89%8D%E6%92%A4%E9%94%80%E5%B7%B2commit%E7%9A%84%E4%BF%AE%E6%94%B9)
 - [创建新的Branch](#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84branch)
+- [修改branch名称](#%E4%BF%AE%E6%94%B9branch%E5%90%8D%E7%A7%B0)
 - [`git remote`](#git-remote)
 - [参考](#%E5%8F%82%E8%80%83)
 
@@ -81,6 +82,23 @@ git merge origin/[name_of_new_branch]
 ```
 首先切换回master branch, 再执行`merge`命令, 将修改发生的branch合并至master branch中。
 
+### 修改branch名称
+
+修改本地的branch名称, 首先定位到需要修改名称的branch, 然后<sup>[4]</sup>
+```
+git branch -m new_name
+```
+
+删除旧名称的branch并将新名称推送至远程repo
+```
+git push origin :old_name new_name
+```
+
+为本地的branch重新创建上传的通道
+```
+git push origin -u new_name
+```
+
 ### `git remote`
 
 `git remote`是管理远程repo的指令, 当每一个项目独立成repo的情况下似乎不需要常使用该指令<sup>[3]</sup>。以下罗列可能的使用场景:
@@ -106,3 +124,4 @@ origin  https://github.com/zouyu4524/RL-market.git (push)
 1. [Create a new branch with git and manage branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 2. [How do I undo 'git add' before commit?](https://stackoverflow.com/a/682343/8064227)
 3. `git remote --help`
+4. [Rename a local and remote branch in git](https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/)
