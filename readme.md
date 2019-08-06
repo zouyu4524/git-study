@@ -10,6 +10,7 @@
 - [创建新的Branch](#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84branch)
 - [修改branch名称](#%E4%BF%AE%E6%94%B9branch%E5%90%8D%E7%A7%B0)
 - [`git remote`](#git-remote)
+- [git免密push](#git%E5%85%8D%E5%AF%86push)
 - [参考](#%E5%8F%82%E8%80%83)
 
 <!-- /MarkdownTOC -->
@@ -119,9 +120,18 @@ origin  https://github.com/zouyu4524/RL-market.git (fetch)
 origin  https://github.com/zouyu4524/RL-market.git (push)
 ```
 
+### git免密push
+
+默认情况下, 从github的远程repo克隆时会提供`https`的地址, 在这种情况下, 即便在Github的Settings/SSH keys中添加本机的秘钥也仍然需要每次push时提供账户和密码<sup>[5]</sup>。实际上需要通过`git`的链接克隆就不会有这个问题了。如果当前的本机repo已经是通过`https`地址克隆而来, 那么可以修改remote地址为`git`格式即可, 如下:  
+
+```
+git remove set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
+
 ### 参考
 
 1. [Create a new branch with git and manage branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 2. [How do I undo 'git add' before commit?](https://stackoverflow.com/a/682343/8064227)
 3. `git remote --help`
 4. [Rename a local and remote branch in git](https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/)
+5. [SSH Key - Still asking for password and passphrase](https://stackoverflow.com/a/21095345)
