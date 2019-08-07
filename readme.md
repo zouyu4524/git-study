@@ -122,6 +122,18 @@ origin  https://github.com/zouyu4524/RL-market.git (push)
 
 ### git免密push
 
+- 添加SSH密钥<sup>[6]</sup>
+
+可以首先通过`ls ~/.ssh/`查看当前系统中是否存在SSH密钥, 如果显示没有以`.pub`为后缀的文件, 则还没有SSH。  
+- 通过以下命令创建SSH密钥:
+
+```
+ssh-keygen -t rsa -C "any comments"
+```
+顺次会提示确认密钥存放地址, 设置查看密钥的密码/确认密码, 可以按照默认流程按三次回车则生成的密钥将存放于`~/.ssh`目录下, 且无需密码查看。其中`-t`是制定加密方式, 一般用`rsa`, `-C`用于添加注释。
+
+- 更改`remote`url为`git`格式  
+
 默认情况下, 从github的远程repo克隆时会提供`https`的地址, 在这种情况下, 即便在Github的Settings/SSH keys中添加本机的秘钥也仍然需要每次push时提供账户和密码<sup>[5]</sup>。实际上需要通过`git`的链接克隆就不会有这个问题了。如果当前的本机repo已经是通过`https`地址克隆而来, 那么可以修改remote地址为`git`格式即可, 如下:  
 
 ```
@@ -135,3 +147,4 @@ git remove set-url origin git@github.com:USERNAME/REPOSITORY.git
 3. `git remote --help`
 4. [Rename a local and remote branch in git](https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/)
 5. [SSH Key - Still asking for password and passphrase](https://stackoverflow.com/a/21095345)
+6. [服务器上的 Git - 生成 SSH 公钥](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
