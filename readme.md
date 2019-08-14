@@ -9,6 +9,7 @@
 - [在Push前撤销已commit的修改](#%E5%9C%A8push%E5%89%8D%E6%92%A4%E9%94%80%E5%B7%B2commit%E7%9A%84%E4%BF%AE%E6%94%B9)
 - [创建新的Branch](#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84branch)
 - [修改branch名称](#%E4%BF%AE%E6%94%B9branch%E5%90%8D%E7%A7%B0)
+- [删除branch](#%E5%88%A0%E9%99%A4branch)
 - [`git remote`](#git-remote)
 - [git免密push](#git%E5%85%8D%E5%AF%86push)
 - [参考](#%E5%8F%82%E8%80%83)
@@ -100,6 +101,14 @@ git push origin :old_name new_name
 git push origin -u new_name
 ```
 
+### 删除branch
+
+```
+git push --delete <remote_name> <branch_name>
+git branch -d <branch_name>
+```
+第一条删除远程的分支, 第二条删除本地分支。<sup>[7]</sup>
+
 ### `git remote`
 
 `git remote`是管理远程repo的指令, 当每一个项目独立成repo的情况下似乎不需要常使用该指令<sup>[3]</sup>。以下罗列可能的使用场景:
@@ -148,3 +157,4 @@ git remove set-url origin git@github.com:USERNAME/REPOSITORY.git
 4. [Rename a local and remote branch in git](https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/)
 5. [SSH Key - Still asking for password and passphrase](https://stackoverflow.com/a/21095345)
 6. [服务器上的 Git - 生成 SSH 公钥](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)
+7. [How do I delete a Git branch locally and remotely?](https://stackoverflow.com/a/2003515/8064227)
