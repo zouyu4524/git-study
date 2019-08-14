@@ -107,7 +107,7 @@ git push origin -u new_name
 git push --delete <remote_name> <branch_name>
 git branch -d <branch_name>
 ```
-第一条删除远程的分支, 第二条删除本地分支。<sup>[]</sup>
+第一条删除远程的分支, 第二条删除本地分支。<sup>[7]</sup>
 
 ### `git remote`
 
