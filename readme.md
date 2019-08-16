@@ -146,7 +146,7 @@ ssh-keygen -t rsa -C "any comments"
 默认情况下, 从github的远程repo克隆时会提供`https`的地址, 在这种情况下, 即便在Github的Settings/SSH keys中添加本机的秘钥也仍然需要每次push时提供账户和密码<sup>[5]</sup>。实际上需要通过`git`的链接克隆就不会有这个问题了。如果当前的本机repo已经是通过`https`地址克隆而来, 那么可以修改remote地址为`git`格式即可, 如下:  
 
 ```
-git remove set-url origin git@github.com:USERNAME/REPOSITORY.git
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
 
 ### 参考
